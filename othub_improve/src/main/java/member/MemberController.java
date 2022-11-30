@@ -34,6 +34,11 @@ public class MemberController {
 		public String loginform() {
 			return "member/login";
 		}
+	//콜백 페이지 페이지
+				@RequestMapping("/callback")
+				public String callbackform() {
+					return "member/callback";
+				}
 	//로그인
 		@PostMapping("/loginprocess")
 		public ModelAndView login_check(@ModelAttribute MemberDTO dto, HttpSession session, HttpServletRequest request) {

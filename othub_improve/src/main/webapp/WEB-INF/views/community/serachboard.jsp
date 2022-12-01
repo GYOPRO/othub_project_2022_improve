@@ -77,17 +77,18 @@
 <div id="container">
     <div class="inner">
         <ul class="nav2 clearfix">
-        	<li class="fl" id="array"><a href="community">최신</a></li>
-            <li class="fl on" id="array"><a href="communitylike">인기</a></li>
-           	<li class="fl" id="array"><a href="mylikecommunity" onclick="logincheck" id="like">좋아요</a></li>
+        	<li class="fl on" id="array"><a href="community">최신</a></li>
+            <li class="fl" id="array"><a href="communitylike">인기</a></li>
+            <li class="fl" id="array"><a href="mylikecommunity" onclick="logincheck" id="like">좋아요</a></li>
             <li class="fl writing" id="writing"><a href="writingcommunity">글쓰기</a></li>
         </ul>
         <div class="flex">
-			<c:forEach items="${boardlist}" var="board">
+			<c:forEach  var="board" items="${boardlist}">
 	            <div class="card">
 	                <div class="img"><a href="oneCommunity?s_seq=${board.s_seq }&image=${board.imagename1 }"><img src="images/community/styleimg/${board.imagename1 }"></a></div>
 	                <div class="txt_box">
 	                    <div class="profile clearfix">
+	                    	<div class="profile_img fl"><img src="images/community/profile_default.png"></div>
 	                        <div class="profile_name fl">${board.s_writer }</div>
 	                        <input type="hidden" value=${board.s_seq } id="s_seq">
 	                    </div>
@@ -108,17 +109,12 @@
 	            </div>
 			</c:forEach>
         </div> 
-        <div class="paging"> 
-        <% int totalPage = (Integer)request.getAttribute("totalPage");
-			for(int i = 1; i<=totalPage; i++){ %>
-				<a href="communitylike?page=<%=i%>" ><%=i%></a>
-		<%}%>
-		</div>
 		<div class="paging"> 
     	<form action="searchboard">
 		<input type="text" name="s_title" style="width: 300px;"><button type="sumbit" style="border: 1px solid">검색</button>
 		</form>
 		</div>
+		
     </div>
 </div>
 <!-- footer include -->

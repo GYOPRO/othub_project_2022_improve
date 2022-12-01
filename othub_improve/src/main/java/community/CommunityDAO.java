@@ -91,4 +91,7 @@ public interface CommunityDAO {
 		public List<ProductDTO> selectProductTag2(String p_name2);
 		public List<ProductDTO> selectProductTag3(String p_name3);
 		public List<ProductDTO> selectProductTag4(String p_name4);
+		
+	// 검색기능
+		public List<CommunityDTO> searchboard(String s_title);
 }

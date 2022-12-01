@@ -190,8 +190,12 @@
 		order by p_name;
 	</select>
 	
-	<select id="counttag" resultType="int">
-		select count(tagn)
+
+	<!-- 검색 기능 -->
+	<select id="searchboard" resultType="communitydto">
+	select s_seq,s_title,s_contents,s_writer,s_viewcount,s_writingtime,
+		s_image1 as imagename1, s_image2 as imagename2, s_image2 as imagename2, s_like from styletab
+		 where s_title like CONCAT('%', #{s_title}, '%') 
 	</select>
 
 </mapper>

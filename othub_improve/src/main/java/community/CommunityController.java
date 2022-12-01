@@ -419,5 +419,14 @@ public class CommunityController {
 			mv.setViewName("community/similarcolorbottom");
 			return mv;
 		}
+		//검색기능
+		@RequestMapping("searchboard")
+		public ModelAndView searchboard(String s_title) {
+			List<CommunityDTO> communityListPaging = commuserive.searchboard(s_title);
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("boardlist",communityListPaging);
+			mv.setViewName("community/serachboard");
+			return mv;
+		}
 	
 }

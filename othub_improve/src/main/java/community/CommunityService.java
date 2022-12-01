@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import member.couponDTO;
 import product.ProductDTO;
 
 @Service("commuservice")
@@ -158,5 +159,10 @@ public class CommunityService {
 	}
 	public List<ProductDTO> selectProductTag4(String p_name4){
 		return dao.selectProductTag4(p_name4);
+	}
+	
+	//검색 기능
+	public  List<CommunityDTO> searchboard(String s_title) {
+		return dao.searchboard(s_title);
 	}
 }

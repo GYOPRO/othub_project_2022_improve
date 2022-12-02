@@ -108,13 +108,8 @@
 	            </div>
 			</c:forEach>
         </div> 
-<div class="paging"> 
-    	<form action="searchboard">
-		<input type="text" name="s_title" style="width: 300px;"><button type="sumbit" style="border: 1px solid">검색</button>
-		</form>
-		</div>
-    </div>
-</div>
+<!-- 검색 include -->
+<%@ include file="../community/search.jsp" %>
 <!-- footer include -->
 	<%@include file="../include/footer.jsp" %>
 </body>

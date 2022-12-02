@@ -27,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.othub.NaverInform;
 
+import comment.CommentDTO;
 import comment.CommentService;
 import member.MemberService;
 import pose.ColorDTO;
@@ -109,6 +110,21 @@ public class CommunityController {
 		mv.addObject("boardlist",communityListPaging);
 		mv.setViewName("community/mylike");
 		return mv;
+	}
+	//내가 쓴 댓글 조회
+	@RequestMapping("/mycomment")
+	public ModelAndView mycomment(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("m_id");
+		CommentDTO dto = new CommentDTO();
+		List<CommentDTO> comunityList = commuserive.mycomment(m_id);
+		ModelAndView mv = new ModelAndView();
+
+		mv.addObject("boardlist",comunityList);
+		mv.setViewName("member/mycomment");
+		return mv;
+		
+		
 	}
 	
 	
@@ -421,12 +437,26 @@ public class CommunityController {
 		}
 		//검색기능
 		@RequestMapping("searchboard")
-		public ModelAndView searchboard(String s_title) {
-			List<CommunityDTO> communityListPaging = commuserive.searchboard(s_title);
+		public ModelAndView searchboard(String searchField, String searchText) {
+			List<CommunityDTO> communityListPaging = new ArrayList<>();
+			if(searchField.equals("s_title")) {
+				communityListPaging = commuserive.searchtitle(searchText);
+			}
+			if(searchField.equals("s_writer")) {
+				communityListPaging = commuserive.searchwriter(searchText);
+			}
+			if(searchField.equals("s_contents")) {
+				communityListPaging = commuserive.searchcontents(searchText);
+			}
 			ModelAndView mv = new ModelAndView();
+			System.out.println(searchField);
+			System.out.println(searchText);
+			System.out.println(communityListPaging);
 			mv.addObject("boardlist",communityListPaging);
 			mv.setViewName("community/serachboard");
 			return mv;
 		}
+		//게시물 신고하기
+
 	
 }

@@ -103,6 +103,7 @@ ul li, ul{
 			<h3>커뮤니티</h3>
 			<ul class="nav_category">
 				<li><a id="c_nav_d" href="mycommunity">내 게시글</a></li>
+				<li><a id="c_nav_d" href="mycomment">내가 쓴 댓글</a></li>
 				<li><a id="c_nav_d" href="mylikecommunity">좋아요한 게시글</a></li>
 			</ul>
 		</div>

@@ -323,6 +323,9 @@ String image3 = (String)request.getAttribute("image3");%>
 
                    <tr class="stylenone">
                    <td colspan="1">작성자 ${oneCommu.s_writer}</td>
+        		   <td colspan="1">
+                            <a href="report?s_seq=${oneCommu.s_seq }" id="reportchk" class="delete_btn btns">신고하기</a>                    
+                   </td>
                    <% if(request.getAttribute("writer").equals(m_id)){ %>
                         <td colspan="5">
                             <a href="deleteCommunity?s_seq=${oneCommu.s_seq }" id="deletechk" class="delete_btn btns">삭제하기</a>

@@ -10,6 +10,7 @@ public class CommunityDTO {
 	String imagename2, imagename3;
 	String p_name1,p_name2,p_name3,p_name4;
 	
+	
 	public CommunityDTO() {}
 	
 	public CommunityDTO(int s_seq,int s_viewcount,int s_like,String s_title,String s_contents, String s_writer, String s_writingtime,

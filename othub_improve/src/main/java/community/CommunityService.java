@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import comment.CommentDTO;
 import member.couponDTO;
 import product.ProductDTO;
 
@@ -162,7 +163,20 @@ public class CommunityService {
 	}
 	
 	//검색 기능
-	public  List<CommunityDTO> searchboard(String s_title) {
-		return dao.searchboard(s_title);
+	//제목
+	public  List<CommunityDTO> searchtitle(String s_title) {
+		return dao.searchtitle(s_title);
+	}
+	//내용
+	public  List<CommunityDTO> searchcontents(String s_contents) {
+		return dao.searchcontents(s_contents);
+	}
+	//작성자
+	public  List<CommunityDTO> searchwriter(String s_writer) {
+		return dao.searchwriter(s_writer);
+	}
+	//내가 쓴 댓글
+	public List<CommentDTO> mycomment(String m_id){
+		return dao.mycomment(m_id);
 	}
 }

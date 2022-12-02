@@ -1,6 +1,5 @@
 package member;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
@@ -35,10 +34,17 @@ public class MemberController {
 			return "member/login";
 		}
 	//콜백 페이지 페이지
-				@RequestMapping("/callback")
-				public String callbackform() {
-					return "member/callback";
-				}
+		@RequestMapping("/callback")
+		public String callbackform() {
+			return "member/callback";
+		}
+				
+	//로그인 페이지
+		@RequestMapping("/login2")
+		public String loginform2() {
+			return "member/login2";
+		}
+				
 	//로그인
 		@PostMapping("/loginprocess")
 		public ModelAndView login_check(@ModelAttribute MemberDTO dto, HttpSession session, HttpServletRequest request) {
@@ -268,5 +274,6 @@ public class MemberController {
 
 			return mv;
 		}
+		
 }
 

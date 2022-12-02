@@ -3,12 +3,32 @@ package comment;
 public class CommentDTO {
 	
 	int b_seq;
+	int s_seq;
 	int cm_seq;
 	String cm_writer;
 	String cm_contents;
 	String cm_writingtime;
+	String s_title, s_viewcount;
 	
 
+	public String getS_title() {
+		return s_title;
+	}
+	public void setS_title(String s_title) {
+		this.s_title = s_title;
+	}
+	public String getS_viewcount() {
+		return s_viewcount;
+	}
+	public void setS_viewcount(String s_viewcount) {
+		this.s_viewcount = s_viewcount;
+	}
+	public int getS_seq() {
+		return s_seq;
+	}
+	public void setS_seq(int s_seq) {
+		this.s_seq = s_seq;
+	}
 	public int getB_seq() {
 		return b_seq;
 	}

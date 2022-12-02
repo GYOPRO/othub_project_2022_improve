@@ -42,7 +42,7 @@
                 <a href="signin">Sign in</a>
                 <input id="btnLogin" type="submit" value="Log in" style="background-color: #2186db;">
                 <!-- 네이버 아이디 로그인 버튼 노출 영역 -->
-                <div id="naver_id_login">네이버 아이디 로그인</div>
+                <div id="naver_id_login"></div>
                 <c:if test="${message == 'error'}">
  					<div style="color:red;"> 아이디 또는 비밀번호가 일치하지 않습니다.
  					</div>
@@ -56,7 +56,7 @@
 <script type="text/javascript">
 	var naver_id_login = new naver_id_login("MGY0_hGBcPMAWX3xrid5", "http://localhost:8085/callback");
 	var state = naver_id_login.getUniqState();
-  	naver_id_login.setButton("white", 3,40);
+  	naver_id_login.setButton("white", 5,40);
   	naver_id_login.setDomain("V_lsdzPrYn");
   	naver_id_login.setState(state);
   	naver_id_login.setPopup();

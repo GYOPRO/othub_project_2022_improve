@@ -64,6 +64,24 @@
 		});//ajax
 	});//onclick end
 			
+	var searchForm = $("#searchForm");                                         
+	$("#searchForm button").on("click", function(e) {                          
+		                                                                       
+		if (!searchForm.find("option:selected").val()) {                       
+			alert("검색 종류를 선택하세요");                                             
+			return false;                                                      
+		}                                                                      
+		                                                                       
+		if (!searchForm.find("input[name='keyword']").val()) {                 
+			alert("키워드를 입력하세요");                                               
+			return false;                                                      
+		}                                                                      
+		                                                                       
+		searchForm.find("input[name='pageNum']").val("1");                     
+		e.preventDefault();                                                    
+		                                                                       
+		searchForm.submit();                                                   
+	}); /* $("#searchForm button").on("click", function(e) { end*/
 		
 	});//ready end
 	</script>
@@ -109,17 +127,18 @@
 	            </div>
 			</c:forEach>
         </div> 
+        <div class="hot">aa</div>
         <div class="paging"> 
         <% int totalPage = (Integer)request.getAttribute("totalPage");
 			for(int i = 1; i<=totalPage; i++){ %>
 				<a href="community?page=<%=i%>" ><%=i%></a>
 		<%}%>
 		</div>
-		<div class="paging"> 
-    	<form action="searchboard">
-		<input type="text" name="s_title" style="width: 300px;"><button type="sumbit" style="border: 1px solid">검색</button>
-		</form>
-		</div>
+		<!-- 검색 화면 -->	   
+		                                                                                                        
+<!-- 검색 include -->
+<%@ include file="../community/search.jsp" %>
+
     </div>
 </div>
 <!-- footer include -->

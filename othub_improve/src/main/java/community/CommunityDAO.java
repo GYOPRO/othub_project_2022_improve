@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import comment.CommentDTO;
 import product.ProductDTO;
 
 @Mapper
@@ -93,5 +94,14 @@ public interface CommunityDAO {
 		public List<ProductDTO> selectProductTag4(String p_name4);
 		
 	// 검색기능
-		public List<CommunityDTO> searchboard(String s_title);
+		//제목
+		public List<CommunityDTO> searchtitle(String s_title);
+		//내용
+		public List<CommunityDTO> searchcontents(String s_contents);
+		//작성자
+		public List<CommunityDTO> searchwriter(String s_writer);
+	
+	//내가 쓴 댓글
+		public List<CommentDTO> mycomment(String m_id);
+
 }

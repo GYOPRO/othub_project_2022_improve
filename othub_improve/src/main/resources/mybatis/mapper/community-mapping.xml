@@ -191,11 +191,32 @@
 	</select>
 	
 
-	<!-- 검색 기능 -->
-	<select id="searchboard" resultType="communitydto">
+	<!-- 제목 검색 기능 -->
+	<select id="searchtitle" resultType="communitydto">
 	select s_seq,s_title,s_contents,s_writer,s_viewcount,s_writingtime,
 		s_image1 as imagename1, s_image2 as imagename2, s_image2 as imagename2, s_like from styletab
 		 where s_title like CONCAT('%', #{s_title}, '%') 
+	</select>
+	
+	<!-- 내용 검색 기능 -->
+	<select id="searchcontents" resultType="communitydto">
+	select s_seq,s_title,s_contents,s_writer,s_viewcount,s_writingtime,
+		s_image1 as imagename1, s_image2 as imagename2, s_image2 as imagename2, s_like from styletab
+		 where s_contents like CONCAT('%', #{s_contents}, '%') 
+	</select>
+	
+	<!-- 작성자 검색 기능 -->
+	<select id="searchwriter" resultType="communitydto">
+	select s_seq,s_title,s_contents,s_writer,s_viewcount,s_writingtime,
+		s_image1 as imagename1, s_image2 as imagename2, s_image2 as imagename2, s_like from styletab
+		 where s_writer like CONCAT('%', #{s_writer}, '%') 
+	</select>
+	
+	<!-- 내가 쓴 댓글 조회 -->
+	<select id="mycomment" resultType="comment.CommentDTO">
+	select s_seq,cm_writer,cm_writingtime,cm_contents,s_title,s_viewcount 
+	from comment c inner join styletab s on c.b_seq = s.s_seq 
+	where cm_writer = #{m_id};
 	</select>
 
 </mapper>

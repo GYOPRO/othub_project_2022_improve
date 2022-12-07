@@ -123,22 +123,32 @@
 	                            <span class="comment">${board.s_viewcount }</span> 
 	                        </li>
 	                    </ol>
+	                   
 	                </div>
 	            </div>
 			</c:forEach>
+			 
         </div> 
-        <div class="hot">aa</div>
+        
         <div class="paging"> 
         <% int totalPage = (Integer)request.getAttribute("totalPage");
 			for(int i = 1; i<=totalPage; i++){ %>
 				<a href="community?page=<%=i%>" ><%=i%></a>
 		<%}%>
 		</div>
+		
 		<!-- 검색 화면 -->	   
 		                                                                                                        
 <!-- 검색 include -->
 <%@ include file="../community/search.jsp" %>
 
+    </div>
+    <div class="hot">
+    최근 본 목록
+    <ol>
+    
+    <li><a href="oneCommunity?s_seq=<%=session.getAttribute("no0")%>"><%=session.getAttribute("no0") %></a></li>
+    </ol>
     </div>
 </div>
 <!-- footer include -->

@@ -323,8 +323,10 @@ String image3 = (String)request.getAttribute("image3");%>
 
                    <tr class="stylenone">
                    <td colspan="1">작성자 ${oneCommu.s_writer}</td>
+                  
         		   <td colspan="1">
-                            <a href="report?s_seq=${oneCommu.s_seq }" id="reportchk" class="delete_btn btns">신고하기</a>                    
+                           <button onclick="window.open(' report?s_seq=${oneCommu.s_seq }', 'window_name', 'width=430, height=500, location=no, status=no, scrollbars=yes');">신고하기</button>
+             
                    </td>
                    <% if(request.getAttribute("writer").equals(m_id)){ %>
                         <td colspan="5">

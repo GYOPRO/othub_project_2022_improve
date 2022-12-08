@@ -7,34 +7,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title></title>
-
+<% String m_id = (String)session.getAttribute("m_id");%>
 </head>
 <body>
+
 신고하기
 <br>
 작성자 : <%=request.getAttribute("writer") %><br>
 내  용 : <%=request.getAttribute("title") %>
-<br>
-<table>
-<th class="actice" style="text-align:left">사유선택</th>
-<form method="get" action="reportss">
-<tr><td><label><input type="radio" name="report" value="type1"> 스팸홍보/도배글입니다.</label></td></tr>
-<tr><td><label><input type="radio" name="report" value="type2"> 음란물입니다.</label></td></tr>
-<tr><td><label><input type="radio" name="report" value="type3"> 불법정보를 포함하고 있습니다.</label></td></tr>
-<tr><td><label><input type="radio" name="report" value="type4"> 청소년에게 유해한 내용입니다.</label></td></tr>
-<tr><td><label><input type="radio" name="report" value="type5"> 개인정보 노출 게시물입니다.</label></td></tr>
-<tr><td><label><input type="radio" name="report" value="type6"> 불쾌한 표현이있습니다.</label></td></tr>
-<tr><td><input id="reportbtn" type="submit" value="신고하기" onclick="window.close()"></td></tr>
-<tr><td><input id="closebtn" type="button" value="창닫기" onclick="window.close()"></td></tr>
 
+<br>
+<form method="get" action="reportss">
+	<label><input type="radio" name="r_value" value="스팸홍보/도배"> 스팸홍보/도배글입니다.</label><br>
+	<label><input type="radio" name="r_value" value="음란물"> 음란물입니다.</label><br>
+	<label><input type="radio" name="r_value" value="불법정보 포함"> 불법정보를 포함하고 있습니다.</label><br>
+	<label><input type="radio" name="r_value" value="청소년 유해"> 청소년에게 유해한 내용입니다.</label><br>
+	<label><input type="radio" name="r_value" value="개인정보 노출"> 개인정보 노출 게시물입니다.</label><br>
+	<label><input type="radio" name="r_value" value="불쾌한 표현"> 불쾌한 표현이있습니다.</label><br>
+	
+	<%if(m_id != null){ %><input type="hidden" name="r_user" value="<%=m_id%>"><%}else{ %><input type="hidden" name="r_user" value=user><%} %>
+	<input type="hidden" name=s_seq value=<%=request.getAttribute("s_seq") %>>
+	<input id="reportbtn" type="submit" value="신고하기" onclick="window.close()"><br>
+	<input id="closebtn" type="button" value="창닫기" onclick="window.close()"><br>
 </form>
-</table>
 </body>
 <script type="text/javascript">
 
-$("#reportbtn").on("click",function(e){
-	confirm("삭제하시겠습니까?");
-
-})
 </script>
 </html>

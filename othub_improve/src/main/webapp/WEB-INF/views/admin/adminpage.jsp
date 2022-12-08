@@ -31,6 +31,12 @@
 				<li><a href="userlist">일반 회원 조회</a></li>
 			</ul>
 		</div><br>
+				<div class="admin_list_box">
+			<h3>게시물 관리</h3>
+			<ul>
+				<li><a href="reportlist">신고된 게시물 조회</a></li>
+			</ul>
+		</div><br>
 		<div class="admin_list_box">
 			<h3>파트너 관리</h3>
 			<ul>

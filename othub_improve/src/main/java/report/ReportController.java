@@ -31,6 +31,7 @@ import comment.CommentDTO;
 import comment.CommentService;
 import community.CommunityDTO;
 import community.CommunityService;
+import member.MemberDTO;
 import member.MemberService;
 import member.couponDTO;
 import pose.ColorDTO;
@@ -46,27 +47,11 @@ public class ReportController {
 	CommunityService commuserive;
 	
 	@Autowired
-	@Qualifier("memberservice")
-	MemberService memberservice;
-	
-	@Autowired
-	@Qualifier("commentservice")
-	CommentService commentservice;
-	
-	@Autowired
-	@Qualifier("poseservice")
-	PoseService poseservice;
-	
-	@Autowired
-	@Qualifier("productservice")
-	ProductServiceImpl productservice;
-	
-	@Autowired
-	@Qualifier("objectservice")
-	ObjectService objectservice;
+	@Qualifier("reportservice")
+	ReportService service;
 	
 	
-		//게시물 신고하기
+		//게시물 신고하기 폼
 		@RequestMapping("report")
 		public ModelAndView report(int s_seq) {
 			CommunityDTO oneCommu = new CommunityDTO();
@@ -75,13 +60,32 @@ public class ReportController {
 			ModelAndView mv = new ModelAndView();
 			mv.addObject("writer",oneCommu.getS_writer());
 			mv.addObject("title",oneCommu.getS_title());
+			mv.addObject("s_seq",oneCommu.getS_seq());
 			mv.setViewName("community/report");
 			return mv;
 		}
+		//신고하기
 		@RequestMapping("reportss")
-		public void reportss(String report){
-			System.out.println(report);
+		public void reportss(ReportDTO dto){
+			System.out.println(dto.s_seq);
+			service.insertReport(dto);
 		}
-
+		
+		//어드민 신고내역 보기
+		@RequestMapping("reportlist")
+		public ModelAndView reportlist() {
+			List<ReportDTO> reportlist = service.reportlist();
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("list",reportlist);
+			mv.setViewName("admin/reportlist");
+			System.out.println(reportlist.get(0));
+			return mv;
+			
+		}
+		// 신고받은 게시물 삭제
+		@RequestMapping("deletereport")
+		public void deletereport(int s_seq) {
+			commuserive.deleteCommunity(s_seq);
+		}
 	
 }

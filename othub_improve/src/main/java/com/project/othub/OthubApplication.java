@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import comment.CommentDAO;
 import community.CommunityDAO;
 import member.MemberDAO;
+import report.ReportDAO;
 import showroom.ShowroomDAO;
 
 @SpringBootApplication
@@ -40,6 +41,7 @@ import showroom.ShowroomDAO;
 @MapperScan(basePackageClasses = CommunityDAO.class)
 @MapperScan(basePackageClasses = CommentDAO.class)
 @MapperScan(basePackageClasses = ShowroomDAO.class)
+@MapperScan(basePackageClasses = ReportDAO.class)
 @MapperScan(basePackages = "shop")
 @MapperScan(basePackages = "productdetail")
 @MapperScan(basePackages = "order")
